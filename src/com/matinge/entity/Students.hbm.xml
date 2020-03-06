@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.matinge.entity">
+    <!--package包下的所有文件都能映射-->
+<!--映射文件的作用：
+    1：类到表映射
+    2：属性字段映射-->
+    <class name="Students" table="students">
+        <id name="id" column="id">
+            <!-- 主键生成策略： -->
+            <generator class="native"/>
+        </id>
+        <!-- 其他的属性都是用property建立映射 -->
+        <property name="name" column="name"/>
+        <property name="age" column="age"/>
+        <property name="phone" column="phone"/>
+    </class>
+</hibernate-mapping>

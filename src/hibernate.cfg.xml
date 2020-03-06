@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- 配置连接数据库的基本的信息 -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql:///ssh</property>
+        <!--///表示127.0.0.1:3306,如有改变可以写为//xx.xx.xx.:xxx-->
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">123456</property>
+        <!-- 配置Hibernate的相关属性 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--同一线程使用同一个session-->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- 可选属性 -->
+        <!-- 显示SQL -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- 格式化SQL -->
+        <property name="hibernate.format_sql">true</property>
+        <!-- hbm2ddl自动建表create每次都会重建表，update没有建表有数据就更新，一般使用update -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- 加载映射文件: -->
+        <mapping resource="com/matinge/entity/Students.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
